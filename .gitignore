@@ -1,0 +1,12 @@
+# Agent scratch output.
+#
+# The leaf's agent runtime writes per-step records to `debug/turn-debug/`
+# relative to the PROJECT ROOT. Inside the driving guest the project
+# root IS this checkout, and the ship step stages with `git add -A` --
+# so without this rule every automated PR carries a pile of machine
+# scratch alongside the actual edit. Three such files were committed to
+# `main` before this rule existed.
+#
+# These are a byproduct of HOW an edit was produced, never part of the
+# edit itself. `scripts/check-no-scratch.sh` asserts this rule holds.
+debug/turn-debug/

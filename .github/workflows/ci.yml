@@ -1,0 +1,33 @@
+name: ci
+
+# The required check for this repository.
+#
+# WHY THIS EXISTS (sparrow-substrate ENG-1504): this repo is the target
+# of an automated "driving proof" -- an agent running inside a cloud
+# microVM edits it, commits, pushes, and opens a PR. That proof's
+# central claim is that the PR "merges on green CI". If nothing is
+# checked, that claim is VACUOUS: it asserts a property of an empty set.
+#
+# So these checks are deliberately non-trivial. Each one encodes a
+# failure that has ALREADY HAPPENED here (see PR #1-#3), which is the
+# only honest basis for a gate.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: The repository is not destroyed by an edit
+        run: ./scripts/check-repo-intact.sh
+
+      - name: No agent scratch output is committed
+        run: ./scripts/check-no-scratch.sh
+
+      - name: Markdown links are well-formed
+        run: ./scripts/check-markdown.sh

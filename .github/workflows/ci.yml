@@ -12,6 +12,12 @@ name: ci
 # failure that has ALREADY HAPPENED here (see PR #1-#3), which is the
 # only honest basis for a gate.
 
+# Least privilege: these checks only read the tree. Nothing here needs
+# write access, and a workflow that cannot write cannot be turned into a
+# lateral-movement step by a malicious PR.
+permissions:
+  contents: read
+
 on:
   pull_request:
   push:

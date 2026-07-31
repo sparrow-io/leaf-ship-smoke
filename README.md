@@ -466,3 +466,5 @@ _Edit made on 2025-06-18 (UTC) by the Sparrow leaf ship-loop witness._
 
 
 <!-- positive control: a small additive edit, the shape the ENG-1504 driving proof makes -->
+
+<!-- merge-credential probe: can the RUNTIME PAT merge a protected-branch PR? -->

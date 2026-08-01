@@ -368,6 +368,7 @@ l
 _Edit made on 2025-06-18 (UTC) by the Sparrow leaf ship-loop witness._
 
 e
+ZZZPROBE_END_OF_FILE_TEST_ZZZ
 
 _Edit made on 2025-06-18 (UTC) by the Sparrow leaf ship-loop witness._
 
